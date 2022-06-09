@@ -1,3 +1,10 @@
+/***********************************************
+* @file ImadaDST_Force_Gauge.ino
+* @brief UART-RS232 interface between Arduino Mega2560 
+*        and Imada DST Digital Force Sensor.
+* @author Oliver Moore
+* @version 1.0
+***********************************************/
 #include <SoftwareSerial.h>
 
 //UART
