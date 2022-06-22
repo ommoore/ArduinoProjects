@@ -11,7 +11,7 @@
 ***********************************************/
 
 /*  __Testing of multiple sensors with output printed to serial monitor and saved to SD card__
- *  Involved Hardware:
+ *  Hardware:
  *    . Arduino Mega2560
  *    . FS4000 Mass Flow Sensor via Half-Duplex (RS485) Modbus Master RTU configuration
  *    . MAX485/RS485 Transceiver between Arduino and FS4000 sensor using an additional GPIO pin
