@@ -11,7 +11,7 @@
 ***********************************************/
 
 /*  __Testing of stepper motor and pump timer operation with IR limit switches__
- *  Involved Hardware:
+ *  Hardware:
  *    . Arduino Mega2560
  *    . 2HSS60 Hybrid Stepper Servo Drive + Stepper motor
  *    . (x2) HiLetgo TCRT5000 IR photoelectric switch
