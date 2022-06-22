@@ -1,19 +1,29 @@
 /***********************************************
 * @file  ChafeTestTimers.ino
-* @brief Testbench project for Arduino MEGA 2560,
-*        2HSS60 Hybrid Stepper Servo Drive + Stepper motor, 
-*        2x HiLetgo TCRT5000 IR photoelectric switch, and
-*        breakout board with L293D Motor Driver IC for water pump.
-*        Using Timer1 interrupt to pulse stepper motor, 
-*        Timer3&4 interrupts for pump OFF(30s)/ON(5s), and
-*        hardware interrupts on pins D2/D3 for IR sensors 
-*        to toggle stepper direction at boundaries for cyclical
-*        lateral motion. Stepper motor configured to obtain 1Hz 
-*        shaft frequency (1s period), and 5000 cycles per test.
+* @brief Testbench automation project for Arduino MEGA 2560
+*        using timer interrupts to control speed & direction 
+*        of stepper motor, as well as pump operation, with 
+*        additional hardware interrupts configured to IR switches 
+*        used for boundary detection.
 *        
 * @author Oliver Moore
 * @version 1.0
 ***********************************************/
+
+/*  __Testing of stepper motor and pump timer operation with IR limit switches__
+ *  Involved Hardware:
+ *    . Arduino Mega2560
+ *    . 2HSS60 Hybrid Stepper Servo Drive + Stepper motor
+ *    . (x2) HiLetgo TCRT5000 IR photoelectric switch
+ *    . Breakout board with L293D Motor Driver IC + pump
+ *    
+ *    Using Timer1 interrupt to pulse stepper motor, 
+ *    Timer3&4 interrupts for pump OFF(30s)/ON(5s), and
+ *    hardware interrupts on pins D2/D3 for IR switches 
+ *    to toggle stepper direction at boundaries for cyclical
+ *    lateral motion. Stepper motor configured to obtain 1Hz 
+ *    shaft frequency (1s period), and 5000 cycles per test.
+ */
 // These macros must be placed before #include "TimerInterrupt.h"
 #define TIMER_INTERRUPT_DEBUG     2   //Change to 0 to remove debugging print statements
 
@@ -31,7 +41,8 @@ const int stepperStepPin = 5;
 const int stepperEnPin = 6;
 const int stepperDirPin = 7;
 
-//Infrared Photoelectric Switch - Hardware Interrupt Pins (options: 2,3,18,19,20,21)
+//TCRT5000 Infrared Photoelectric Switch
+//Hardware Interrupt Pins (options: 2,3,18,19,20,21)
 const int ir_sw0 = 2;
 const int ir_sw1 = 3;
 
