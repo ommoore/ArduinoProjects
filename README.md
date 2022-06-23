@@ -55,6 +55,11 @@
   **Description:** \
   LCD Display of SDP8xx Differential Pressure Sensor and BME280 Humdidity Sensor data.
 
+## SmartWateringSystem
+  **Description:** \
+  Elecrow smart watering system for 1-4 plants using a system of 4 capacitive moisture sensors, 4 relays and one pump. LCD functionality for \ 
+  monitoring real-time moisture readings. Modification of original source code.
+  
 ## SPISlaveCmdHandling
   **Description:** \
   Arduino Mega2560 acting as SPI slave device toreceive a command byte and respond accordingly. 
@@ -79,8 +84,3 @@
   **Description:** \
   Arduino Mega2560 receiving a string over UART Serial and retransmitting with toggled case. 
   Modified from example from: FastBit Embedded Brain Academy (Udemy) course.
-  
-## Smart_Watering_System
-  **Description:** \
-  Elecrow smart watering system for 1-4 plants using a system of 4 capacitive moisture sensors, 4 relays and one pump. LCD functionality for \ 
-  monitoring real-time moisture readings. Modification of original source code.
