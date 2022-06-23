@@ -27,6 +27,26 @@
   - (x2) HiLetgo TCRT5000 IR photoelectric switch
   - Breakout board with L293D Motor Driver IC + pump
 
+## I2CMasterRxString
+ **Description:** \
+ Arduino Mega2560 acting as I2C master device to receive a string, or collection of bytes, from slave. 
+ Modified from example from: FastBit Embedded Brain Academy (Udemy) course.
+
+## I2CMasterRxStringLen
+ **Description:** \
+ Arduino Mega2560 acting as I2C master device to receive a variable-length string from slave. 
+ Modified from example from: FastBit Embedded Brain Academy (Udemy) course.
+ 
+## I2CSlaveRxString
+ **Description:** \
+ Arduino Mega2560 acting as I2C slave device to receive a string, or collection of bytes, from master. 
+ Modified from example from: FastBit Embedded Brain Academy (Udemy) course.
+ 
+## I2CSlaveTxString
+ **Description:** \
+ Arduino Mega2560 acting as I2C slave device to receive and transfer a string from master. 
+ Modified from example from: FastBit Embedded Brain Academy (Udemy) course.
+
 ## ImadaDST_Force_Gauge
   **Description:** \
   UART-RS232 interface between Arduino Mega2560 and Imada DST Digital Force Sensor.
@@ -34,6 +54,31 @@
 ## SDP8xx-DiffPressure_BME280-Humidity
   **Description:** \
   LCD Display of SDP8xx Differential Pressure Sensor and BME280 Humdidity Sensor data.
+
+## SPISlaveCmdHandling
+  **Description:** \
+  Arduino Mega2560 acting as SPI slave device toreceive a command byte and respond accordingly. 
+  Modified from example from: FastBit Embedded Brain Academy (Udemy) course.
+
+## SPISlaveRxString
+  **Description:** \
+  Arduino Mega2560 acting as SPI slave device to receive a string, or collection of bytes, from master. 
+  Modified from example from: FastBit Embedded Brain Academy (Udemy) course.
+
+## SPISlaveUARTRxSPITx
+  **Description:** \
+  Arduino Mega2560 acting as SPI slave device to read Serial UART data into buffer and retransmit over SPI. 
+  Modified from example from: FastBit Embedded Brain Academy (Udemy) course.
+
+## UARTRxString
+  **Description:** \
+  Arduino Mega2560 receiving a string, or collection of bytes, over UART Serial.
+  Modified from example from: FastBit Embedded Brain Academy (Udemy) course.
+  
+## UARTTxString
+  **Description:** \
+  Arduino Mega2560 receiving a string over UART Serial and retransmitting with toggled case. 
+  Modified from example from: FastBit Embedded Brain Academy (Udemy) course.
   
 ## Smart_Watering_System
   **Description:** \
