@@ -1,5 +1,5 @@
 /***********************************************
-* @file  I2CSlaveRxString.ino
+* @file  I2CSlaveTxString.ino
 * @brief Arduino Mega2560 acting as I2C slave device to receive and
 *        transfer a string, or collection of bytes, from master. 
 *        Modified from example from: FastBit Embedded 
