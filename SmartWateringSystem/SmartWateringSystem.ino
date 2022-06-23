@@ -1,5 +1,5 @@
 /***********************************************
-* @file smart_watering_system.ino
+* @file  SmartWateringSystem.ino
 * @brief Elecrow smart watering system for 1-4 plants
 *        using a system of 4 capacitive moisture sensors,
 *        4 relays and one pump. LCD functionality for 
