@@ -1,19 +1,19 @@
 /***********************************************
-* @file  I2CMasterRxStringLen.ino
-* @brief Arduino Mega2560 acting as I2C master device to
-*        receive a variable-length string from slave. 
-*        Modified from example from: FastBit Embedded 
-*        Brain Academy (Udemy) course.
+* @file  I2CPrimary_rxStringLen.ino
+* @brief Arduino Mega2560 acting as I2C primary 
+*        device to receive a variable-length string 
+*        from secondary. Modified example from: 
+*        FastBit Embedded Brain Academy (Udemy) course.
 *        
 * @author Oliver Moore
 * @version 1.0
 ***********************************************/
-//Wire (I2C) Master receiver
+//Wire (I2C) Primary receiver
 //Arduino Mega2560 - [A4(SDA), A5(SCL)] or D20(SDA), D21(SCL)
 
 #include <Wire.h>
 
-#define SLAVE_ADDR 0x68
+#define SECONDARY_ADDR 0x68
 
 int LED = 13;
 uint8_t rcv_buf[512];
@@ -25,14 +25,14 @@ void setup() {
   //Define the LED pin as output
   pinMode(LED, OUTPUT);
   
-  //Join I2C bus (address optional for master)
+  //Join I2C bus (address optional for primary)
   Wire.begin(); 
 }
 
 void loop() {
-  uint32_t rem_len = 0,last_read = 0;
+  uint32_t rem_len = 0, last_read = 0;
   
-  Serial.println("Arduino Master");
+  Serial.println("Arduino Primary");
   Serial.println("Send character \"s\" to begin");
   Serial.println("-----------------------------");
 
@@ -45,11 +45,11 @@ void loop() {
 
   Serial.println("Starting..");
 
-  Wire.beginTransmission(SLAVE_ADDR);
+  Wire.beginTransmission(SECONDARY_ADDR);
   Wire.write(0x51);   //Send this command to read the length
   Wire.endTransmission();
 
-  Wire.requestFrom(SLAVE_ADDR, 4);  //Request the transmitted bytes
+  Wire.requestFrom(SECONDARY_ADDR, 4);  //Request the transmitted bytes
   for(uint32_t len = 0; len < 4; len++) {
     if(Wire.available()) { 
       uint32_t data = (uint32_t)Wire.read();
@@ -61,18 +61,18 @@ void loop() {
   Serial.print("Data Length:");
   Serial.println(data_len);
 
-  Wire.beginTransmission(SLAVE_ADDR);
+  Wire.beginTransmission(SECONDARY_ADDR);
   Wire.write(0x52); //Send this command to ask data
   Wire.endTransmission();
 
   rem_len = data_len;
   while(rem_len > 0) {
     if(rem_len <= 32) {
-      Wire.requestFrom(SLAVE_ADDR, rem_len);
+      Wire.requestFrom(SECONDARY_ADDR, rem_len);
       last_read = rem_len;
       rem_len = 0;
     } else {
-      Wire.requestFrom(SLAVE_ADDR, 32);
+      Wire.requestFrom(SECONDARY_ADDR, 32);
       last_read = 32;
       rem_len -= 32;
     }

@@ -1,43 +1,49 @@
 /***********************************************
-* @file  SPISlaveUARTRxSPITx.ino
-* @brief Arduino Mega2560 acting as SPI slave device to
-*        read Serial UART data into buffer and retransmit 
-*        over SPI. Modified from example from: FastBit 
-*        Embedded Brain Academy (Udemy) course.
+* @file  SPISecondary_UARTrxSPItx.ino
+* @brief Arduino Mega2560 acting as SPI secondary 
+*        device to read Serial UART data into buffer 
+*        and retransmit over SPI. Modified example 
+*        from: FastBit Embedded Brain Academy (Udemy) 
+*        course.
 *        
 * @author Oliver Moore
 * @version 1.0
 ***********************************************/
 /* 
- * SPI pin numbers:
+ * SPI pin numbers (new terminology):
  * SCK   13  // Serial Clock
- * MISO  12  // Master In Slave Out
- * MOSI  11  // Master Out Slave In
- * SS    10  // Slave Select. Arduino SPI pins respond only if SS pulled low by the master
+ * SDI   12  // Serial Data In
+ * SDO   11  // Serial Data Out
+ * CS    10  // Chip Select. Arduino SPI pins respond only if CS pulled low by the primary
  */
 #include <SPI.h>
 
 #define MAX_LEN 500
 
-const byte led = 9;           //Slave LED digital I/O pin
+//SPI redefines
+#define SDO           MOSI
+#define SDI           MISO
+#define CS            SS
+
+const byte led = 9;           //Secondary LED digital I/O pin
 bool msgComplete = false;
 uint8_t userBuffer[MAX_LEN];
 uint32_t cnt = 0;
 
-//Initialize SPI slave
-void SPI_SlaveInit(void) { 
+//Initialize SPI secondary
+void SPI_SecondaryInit(void) { 
   //Initialize SPI pins.
   pinMode(SCK, INPUT);
-  pinMode(MOSI, INPUT);
-  pinMode(MISO, OUTPUT);
-  pinMode(SS, INPUT);
+  pinMode(SDO, INPUT);
+  pinMode(SDI, OUTPUT);
+  pinMode(CS, INPUT);
   
-  //Enable SPI as slave.
+  //Enable SPI as secondary.
   SPCR = (1 << SPE);
 }
 
 //Return SPDR contents 
-uint8_t SPI_SlaveReceive(void) {
+uint8_t SPI_SecondaryReceive(void) {
   /* Wait for reception complete */
   while(!(SPSR & (1 << SPIF)));
   
@@ -45,9 +51,8 @@ uint8_t SPI_SlaveReceive(void) {
   return SPDR;
 }
 
-
 //Send data byte 
-void SPI_SlaveTransmit(uint8_t data) {
+void SPI_SecondaryTransmit(uint8_t data) {
   /* Start transmission */
   SPDR = data;
   
@@ -66,14 +71,14 @@ void setup() {
   //Initialize Serial
   Serial.begin(9600);
 
-  //Initialize slave LED pin
+  //Initialize secondary LED pin
   pinMode(led, INPUT_PULLUP);
   //digitalWrite(8,LOW);
   
-  //Initialize SPI Slave
-  SPI_SlaveInit();
+  //Initialize SPI secondary
+  SPI_SecondaryInit();
 
-  Serial.println("Slave Initialized");
+  Serial.println("Secondary Initialized");
 }
 
 void loop() {
@@ -100,12 +105,12 @@ void loop() {
 
   /* Transmit the user buffer over SPI */
   for(uint32_t i = 0; i < cnt; i++) {
-    SPI_SlaveTransmit(userBuffer[i]);
+    SPI_SecondaryTransmit(userBuffer[i]);
   }
   cnt = 0;
   msgComplete = false;
   Serial.println("Message sent...");
 
-  while(!digitalRead(SS));
+  while(!digitalRead(CS));
   Serial.println("Master ends communication");
 }

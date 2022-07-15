@@ -1,8 +1,8 @@
 /***********************************************
-* @file  UARTTxString.ino
+* @file  UART_txString.ino
 * @brief Arduino Mega2560 receiving a string over 
-*        UART Serial and retransmitting with toggled case. 
-*        Modified from example from: FastBit Embedded 
+*        UART Serial and retransmitting with toggled 
+*        case. Modified example from: FastBit Embedded 
 *        Brain Academy (Udemy) course.
 *        
 * @author Oliver Moore

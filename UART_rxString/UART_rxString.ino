@@ -1,8 +1,8 @@
 /***********************************************
-* @file  UARTRxString.ino
+* @file  UART_rxString.ino
 * @brief Arduino Mega2560 receiving a string, or 
 *        collection of bytes, over UART Serial.
-*        Modified from example from: FastBit Embedded 
+*        Modified example from: FastBit Embedded 
 *        Brain Academy (Udemy) course.
 *        
 * @author Oliver Moore
