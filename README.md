@@ -2,7 +2,7 @@
 
 ## ChafeTestSensors
   **Description:** \
-  Testbench sensor project for Arduino MEGA 2560 to obtain and store chafe test environmental data from the mass flow, differential pressure,
+  Sensor project for Arduino MEGA 2560 to obtain and store chafe test environmental data from the mass flow, differential pressure,
   humidity, proximity, and temperature sensors paired with RTC timestamps to SD Card via reader module.
   
   **Hardware:**
@@ -27,25 +27,25 @@
   - (x2) HiLetgo TCRT5000 IR photoelectric switch
   - Breakout board with L293D Motor Driver IC + pump
 
-## I2CMasterRxString
+## I2CPrimary_rxString
  **Description:** \
- Arduino Mega2560 acting as I2C master device to receive a string, or collection of bytes, from slave. 
- Modified from example from: FastBit Embedded Brain Academy (Udemy) course.
+ Arduino Mega2560 acting as I2C primary device to receive a string, or collection of bytes, from secondary. 
+ Modified example from: FastBit Embedded Brain Academy (Udemy) course.
 
-## I2CMasterRxStringLen
+## I2CPrimary_rxStringLen
  **Description:** \
- Arduino Mega2560 acting as I2C master device to receive a variable-length string from slave. 
- Modified from example from: FastBit Embedded Brain Academy (Udemy) course.
+ Arduino Mega2560 acting as I2C primary device to receive a variable-length string from secondary. 
+ Modified example from: FastBit Embedded Brain Academy (Udemy) course.
  
-## I2CSlaveRxString
+## I2CSecondary_rxString
  **Description:** \
- Arduino Mega2560 acting as I2C slave device to receive a string, or collection of bytes, from master. 
- Modified from example from: FastBit Embedded Brain Academy (Udemy) course.
+ Arduino Mega2560 acting as I2C secondary device to receive a string, or collection of bytes, from primary. 
+ Modified example from: FastBit Embedded Brain Academy (Udemy) course.
  
-## I2CSlaveTxString
+## I2CSecondary_txString
  **Description:** \
- Arduino Mega2560 acting as I2C slave device to receive and transfer a string from master. 
- Modified from example from: FastBit Embedded Brain Academy (Udemy) course.
+ Arduino Mega2560 acting as I2C secondary device to receive and transfer a string from primary. 
+ Modified example from: FastBit Embedded Brain Academy (Udemy) course.
 
 ## ImadaDST_Force_Gauge
   **Description:** \
@@ -60,27 +60,27 @@
   Elecrow smart watering system for 1-4 plants using a system of 4 capacitive moisture sensors, 4 relays and one pump. LCD functionality for 
   monitoring real-time moisture readings. Modification of original source code.
   
-## SPISlaveCmdHandling
+## SPISecondary_cmdHandling
   **Description:** \
-  Arduino Mega2560 acting as SPI slave device toreceive a command byte and respond accordingly. 
+  Arduino Mega2560 acting as SPI secondary device to receive a command byte and respond accordingly. 
   Modified from example from: FastBit Embedded Brain Academy (Udemy) course.
 
-## SPISlaveRxString
+## SPISecondary_rxString
   **Description:** \
-  Arduino Mega2560 acting as SPI slave device to receive a string, or collection of bytes, from master. 
-  Modified from example from: FastBit Embedded Brain Academy (Udemy) course.
+  Arduino Mega2560 acting as SPI secondary device to receive a string, or collection of bytes, from primary. 
+  Modified example from: FastBit Embedded Brain Academy (Udemy) course.
 
-## SPISlaveUARTRxSPITx
+## SPISecondary_UARTrxSPItx
   **Description:** \
-  Arduino Mega2560 acting as SPI slave device to read Serial UART data into buffer and retransmit over SPI. 
-  Modified from example from: FastBit Embedded Brain Academy (Udemy) course.
+  Arduino Mega2560 acting as SPI secondary device to read Serial UART data into buffer and retransmit over SPI. 
+  Modified example from: FastBit Embedded Brain Academy (Udemy) course.
 
-## UARTRxString
+## UART_rxString
   **Description:** \
   Arduino Mega2560 receiving a string, or collection of bytes, over UART Serial.
-  Modified from example from: FastBit Embedded Brain Academy (Udemy) course.
+  Modified example from: FastBit Embedded Brain Academy (Udemy) course.
   
-## UARTTxString
+## UART_txString
   **Description:** \
   Arduino Mega2560 receiving a string over UART Serial and retransmitting with toggled case. 
-  Modified from example from: FastBit Embedded Brain Academy (Udemy) course.
+  Modified example from: FastBit Embedded Brain Academy (Udemy) course.
