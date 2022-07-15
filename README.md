@@ -2,7 +2,7 @@
 
 ## ChafeTestSensors
   **Description:** \
-  Testbench sensor project for Arduino MEGA 2560 to obtain and store chafe test environmental data from the mass flow, differential pressure, \
+  Testbench sensor project for Arduino MEGA 2560 to obtain and store chafe test environmental data from the mass flow, differential pressure,
   humidity, proximity, and temperature sensors paired with RTC timestamps to SD Card via reader module.
   
   **Hardware:**
@@ -18,7 +18,7 @@
     
 ## ChafeTestTimers
   **Description:** \
-  Testbench automation project for Arduino MEGA 2560 using timer interrupts to control speed & direction of stepper motor, as well as pump \
+  Testbench automation project for Arduino MEGA 2560 using timer interrupts to control speed & direction of stepper motor, as well as pump
   operation, with additional hardware interrupts configured to IR switches used for boundary detection.
 
   **Hardware:**
@@ -57,7 +57,7 @@
 
 ## SmartWateringSystem
   **Description:** \
-  Elecrow smart watering system for 1-4 plants using a system of 4 capacitive moisture sensors, 4 relays and one pump. LCD functionality for \ 
+  Elecrow smart watering system for 1-4 plants using a system of 4 capacitive moisture sensors, 4 relays and one pump. LCD functionality for 
   monitoring real-time moisture readings. Modification of original source code.
   
 ## SPISlaveCmdHandling
